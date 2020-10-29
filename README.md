@@ -5,21 +5,26 @@ How to run the program:
 
 > ./server
 
-> ./client server-IP-address filename
-> ./client cis3210.socs.uoguelph.ca test.txt
-> ./client 127.0.0.1 test.txt
-
-…or create a new repository on the command line
- echo "# HTTP-server" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/abogutalan/HTTP-server.git
-git push -u origin main
+Then go to browser:
+http://cis3210.socs.uoguelph.ca:39732/index.html
 
 
-…or push an existing repository from the command line
- git remote add origin https://github.com/abogutalan/HTTP-server.git
-git branch -M main
-git push -u origin main
+Memory Leaks Test below:
+
+==25329== HEAP SUMMARY:
+==25329==     in use at exit: 0 bytes in 0 blocks
+==25329==   total heap usage: 7 allocs, 7 frees, 7,492 bytes allocated
+==25329== 
+==25329== All heap blocks were freed -- no leaks are possible
+==25329== 
+==25329== For counts of detected and suppressed errors, rerun with: -v
+==25329== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==25330== 
+==25330== HEAP SUMMARY:
+==25330==     in use at exit: 0 bytes in 0 blocks
+==25330==   total heap usage: 7 allocs, 7 frees, 7,492 bytes allocated
+==25330== 
+==25330== All heap blocks were freed -- no leaks are possible
+==25330== 
+==25330== For counts of detected and suppressed errors, rerun with: -v
+==25330== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
