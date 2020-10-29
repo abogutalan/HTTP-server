@@ -1,7 +1,9 @@
+CFLAGS = -Wall -g -std=c11
+
 all: server 
 
 server: server.c 
-	gcc -g server.c -o server
+	gcc $(CFLAGS) -g server.c -o server
 
 
 clean:

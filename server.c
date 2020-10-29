@@ -48,9 +48,9 @@ void *get_in_addr(struct sockaddr *sa)
 	return &(((struct sockaddr_in6*)sa)->sin6_addr);
 }
 
-void web(int fd, int hit)
+void client(int fd, int order)
 {
-	int j, file_fd;
+	int file_fd;
 	long i, ret, len;
 	static char buffer[MAXDATASIZE+1]; /* static so zero filled */
 
@@ -86,12 +86,12 @@ void web(int fd, int hit)
 
 	len = (long)lseek(file_fd, (off_t)0, SEEK_END); /* lseek to the file end to find the length */
 	      (void)lseek(file_fd, (off_t)0, SEEK_SET); /* lseek back to the file start ready for reading */
-          (void)sprintf(buffer,"HTTP/1.1 200 OK\nContent-Length: %ld\nConnection: close\n\n", len); /* Header + a blank line */
-	fprintf(stderr, "Header %s %d\n", buffer, hit);
+          (void)sprintf(buffer,"HTTP/1.1 200 OK\nContent-Length: %ld\nConnection: close\n\n", len); 
+	fprintf(stderr, "Header %s %d\n", buffer, order);
 	
 	(void)write(fd,buffer,strlen(buffer));
 
-	/* send file in 8KB block - last block may be smaller */
+	/* send file in blocks */
 	while (	(ret = read(file_fd, buffer, MAXDATASIZE)) > 0 ) {
 		(void)write(fd,buffer,ret);
 	}
@@ -186,7 +186,7 @@ int main(void)
 			close(sockfd); // child doesn't need the listener
 			// if (send(new_fd, "Hello, world!", 13, 0) == -1)
 			// 	perror("send");
-			web(new_fd,order); /* never returns */
+			client(new_fd,order); 
 			printf("Hello World! \n");
 			close(new_fd);
 			exit(0);
