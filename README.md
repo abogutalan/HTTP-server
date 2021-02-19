@@ -1,22 +1,24 @@
 Beej’s Guide to Network Programming is Copyright © 2019 Brian “Beej Jorgensen” Hall.
 
 
-How to run the program:
+##### How to run the program:
 
 > make clean
 > make
 > ./server
 
 
-Then go to browser:
+##### Then go to browser:
 
-http://<HOST>:<PORT>/<HTML_FILE>
-http://cis3210.socs.uoguelph.ca:39732/index.html
-http://127.0.0.1:39732/index.html
+> http://<HOST>:<PORT>/<HTML_FILE>
+> http://cis3210.socs.uoguelph.ca:39732/index.html
+> http://127.0.0.1:39732/index.html
+
+##### This Website template is used:
+https://www.free-css.com/free-css-templates/page193/bootstrap-restaurant
 
 
-
-
+```
 Memory Leaks Test below:
 
 ==25329== HEAP SUMMARY:
@@ -36,7 +38,5 @@ Memory Leaks Test below:
 ==25330== 
 ==25330== For counts of detected and suppressed errors, rerun with: -v
 ==25330== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+```
 
-
-Website template used:
-https://www.free-css.com/free-css-templates/page193/bootstrap-restaurant
